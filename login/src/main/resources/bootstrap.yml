@@ -1,0 +1,36 @@
+spring:
+  output:
+    ansi:
+      #DETECT：会检查终端是否支持ANSI，是的话就采用彩色输出（推荐项）
+      enabled: detect
+  cloud:
+    config:
+      name: login
+      profile: test
+      label: master
+      discovery:
+        enabled: true
+        service-id: config-server
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8082/eureka/
+      #defaultZone: http://192.168.7.46:8082/eureka/,http://192.168.7.46:8083/eureka/
+
+management:
+  security:
+    enabled: false
+  address: 127.0.0.1
+  context-path: /manage
+
+banner:
+  charset: utf-8
+  location: banner.txt
+
+logging:
+  config: classpath:log4j2.xml
+
+endpoints:
+  shutdown:
+    enabled: true

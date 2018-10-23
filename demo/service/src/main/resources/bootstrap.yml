@@ -1,0 +1,52 @@
+spring:
+  output:
+    ansi:
+      #DETECT：会检查终端是否支持ANSI，是的话就采用彩色输出（推荐项）
+      enabled: detect
+  cloud:
+    config:
+      name: service
+      profile: test
+      label: master
+      discovery:
+        enabled: true
+        service-id: config-server
+
+eureka:
+  client:
+    serviceUrl:
+      #defaultZone: http://192.168.7.46:8082/eureka/,http://192.168.7.46:8083/eureka/
+      defaultZone: http://localhost:8082/eureka/
+
+feign:
+  hystrix:
+    enabled: true
+
+hystrix:
+  threadpool.default.coreSize: 100
+  threadpool.default.maximumSize: 200
+  threadpool.default.maxQueueSize: 5000
+  threadpool.default.allowMaximumSizeToDivergeFromCoreSize: true
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 5000
+
+management:
+  security:
+    enabled: false
+  address: 127.0.0.1
+  context-path: /manage
+
+banner:
+  charset: utf-8
+  location: banner.txt
+
+logging:
+  config: classpath:log4j2.xml
+
+endpoints:
+  shutdown:
+    enabled: true

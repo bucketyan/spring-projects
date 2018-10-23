@@ -1,0 +1,14 @@
+spring:
+  application:
+      name: service
+
+server:
+  port: 8088
+
+management:
+  port: 9088
+
+feign:
+  client-id: testId
+  client-secret: testSecret
+  header: feign-auth

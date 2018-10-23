@@ -1,0 +1,35 @@
+zuul:
+  host:
+    #总连接数
+    maxTotalConnections: 200
+    #每个路由连接数
+    maxPerRouteConnections: 20
+  routes:
+    test:
+      path: /service/**
+      serviceId: service
+      #过滤客户端附带的headers
+      sensitiveHeaders: Cookie,Set-Cookie
+    auth:
+      path: /login/**
+      serviceId: auth-server
+      sensitiveHeaders: Cookie,Set-Cookie
+
+
+security:
+  oauth2:
+    client:
+      accessTokenUri: /oauth/token
+      clientId: fuck
+      clientSecret: fuck
+    resource:
+      userInfoUri: /user
+      token-info-uri: /oauth/check_token
+  filter-order: 1
+
+#自定义放行url pattern
+custom:
+  permitall:
+    patterns:
+      - /login/**
+      - /web/**

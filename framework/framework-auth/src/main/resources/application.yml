@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: auth-server
+  #profiles:
+    #active: t
+
+server:
+  port: 8086
+
+management:
+  port: 9086
+
+
+

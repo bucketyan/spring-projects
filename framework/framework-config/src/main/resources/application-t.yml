@@ -1,0 +1,36 @@
+server:
+  port: 8081
+
+management:
+  port: 9081
+  security:
+    enabled: false
+  address: 127.0.0.1
+  context-path: /manage
+
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/bucketyan/spring-projects.git
+          #search-paths: config-repo,framework,service
+          search-paths: config-repo/framework,config-repo/service
+          #basedir: /opt/framework/config/config-basedir/
+          basedir: /Users/fuck/worktools/IdeaGitHub/spring-projects/framework/framework-config/config/config-basedir/
+          #username: z
+          #password: "1"
+
+eureka:
+  client:
+    serviceUrl:
+      #defaultZone: http://192.168.7.46:8082/eureka/,http://192.168.7.46:8083/eureka/
+      defaultZone: http://localhost:8082/eureka/
+
+
+
+
+
+

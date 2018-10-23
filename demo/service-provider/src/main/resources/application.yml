@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: service-provider
+  #profiles:
+      #active: t
+
+server:
+    port: 8089
+
+management:
+  port: 9009
+
+feign:
+  client-id: testId
+  client-secret: testSecret
+  header: feign-auth

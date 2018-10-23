@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: gateway
+  #profiles:
+    #active: t
+
+server:
+  port: 8084
+
+management:
+  port: 9084
+
